@@ -1,6 +1,6 @@
 # NextG - Next Generation Drupal 8 theme
 
-Uses Node.js, Gulp, Sass compiling, and React.
+Uses Bootstrap, Node.js, Gulp, Sass compiling, and React.
 
 ## Requirements
 - Node.js
