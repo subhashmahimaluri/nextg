@@ -1,0 +1,52 @@
+/*---------------------------------------------------------------------------
+ *---------------------------------------------------------------------------
+ *
+ * Bootstrap Basic Overrides
+ *
+ *---------------------------------------------------------------------------
+ *--------------------------------------------------------------------------- */
+
+.btn, .form-control {
+  border-radius: 0;
+}
+.main-container {
+  padding-top: 0 !important;
+  @media (min-width: $screen-md) {
+    padding-top: 280px;
+  }
+}
+.dropdown-menu {
+  > .active {
+    > a ,> a:hover , > a:focus{
+      background-color: $body-bg;
+      color: $text-color;
+    }
+  }
+  border-bottom: 0 none;
+  box-shadow: none;
+  padding: 0 0 0 20px;
+}
+
+.hamburger-menu-wrap {
+  .navbar-nav {
+    li {
+      a {
+        &.dropdown-toggle {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+.navbar-fixed-top {
+  position: relative;
+  margin: 0;
+}
+.img-responsive {
+  border: 1px solid #d7d7d7;
+}
+/* get rid of that annoying shadow in the search field! */
+input[type="text"], input[type="email"], input[type="search"], input[type="password"] {
+  -webkit-appearance: none;
+  -moz-appearance: none; 
+}
