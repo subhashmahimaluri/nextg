@@ -1,16 +1,12 @@
 base:
-  version: 1.x
   css:
     theme:
       css/font-awesome.min.css: { weight: -3 }
-      css/style.css: { weight: -1 }      
+      css/style.css: { weight: -1 }
   js:
     js/vendor/bootstrap.min.js: { scope: footer, weight: -2 }
-    js/main.js: { scope: footer, weight: -1 }
+    js/main.js: { scope: footer, weight: 0 }
   dependencies:
     - core/jquery
     - core/drupal.ajax
     - core/drupal
-    - core/drupalSettings
-    - core/jquery.once
-    - core/modernizr

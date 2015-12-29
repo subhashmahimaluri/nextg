@@ -1,23 +1,30 @@
 name: NextG
-description: Next Generation Drupal 8 Theme
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
 type: theme
-core: 8.x
-version: 8.0.0-beta
+core: '8.x'
+
 
 libraries:
   - nextg/base
 
-stylesheets-remove:
-  - core/assets/vendor/normalize-css/normalize.css
-  - core/modules/system/css/system.theme.css
-
 regions:
-  header: Header  
-  primary_menu: Main Menu
-  search: Search
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  search: 'Search'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
   breadcrumb: Breadcrumb
-  content: Main Content
+  content: Content
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
-  footer: Footer
-  footer_bottom: Footer Bootom
+  featured_bottom_first: 'Featured bottom first'
+  featured_bottom_second: 'Featured bottom second'
+  featured_bottom_third: 'Featured bottom third'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'
+  footer_third: 'Footer third'
+  footer_fourth: 'Footer fourth'
+  footer_bottom: 'Footer Bootom'

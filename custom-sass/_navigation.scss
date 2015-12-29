@@ -1,0 +1,167 @@
+/*---------------------------------------------------------------------------
+*---------------------------------------------------------------------------
+*
+* Navigation Styles
+*
+*---------------------------------------------------------------------------
+*--------------------------------------------------------------------------- */
+.navbar-collapse {
+  float: left;
+  padding-right: 0;
+  padding-left: 0;
+  border: 2px solid #eee;
+  position: absolute;
+  width: 300px;
+  z-index: 1;
+  top: 60px;
+  display: none;
+  background: $white;
+  @media (min-width: $screen-md-min) {
+    float: right;
+    position: relative;
+    border: 0;
+    top: 0;
+    width: auto;
+    margin-top: 18px;
+    display: block;
+    background: none;
+  }   
+  nav {
+    float: left;
+    width: 100%;
+    @media (min-width: $screen-md-min) {
+      margin-right: 10px;
+    }
+    ul {
+      margin-bottom: 0;
+      padding-left: 0;
+      float: left;
+      width: 100%;
+      li {
+        float: left;
+        line-height: 14px;
+        font-size: 16px;
+        position: relative;
+        list-style: none;
+        padding: 5px 14px;          
+        width: 100%;
+        border-bottom: 1px solid $gray-lighter;
+        @media (min-width: $screen-md-min) {
+          width: auto;
+          border-bottom: 0;
+          font-size: 14px;
+          padding: 5px 18px; 
+        }
+        &:hover {
+          ul {            
+            @media (min-width: $screen-md-min) {
+              display: block !important;
+            }
+            li {
+              ul {
+                @media (min-width: $screen-md-min) {
+                  display: none !important;
+                }
+              }
+              &:hover {
+                ul {
+                  @media (min-width: $screen-md-min) {
+                    display: block !important;
+                  }
+                }
+              }
+            } 
+          }
+        }
+        a {
+          color: $nav-default;
+          float: left;
+          font-weight: 600;
+          padding: 10px 0;
+          width: 90%;
+          @media (min-width: $screen-md-min) {
+            padding: 0 0 30px;
+            width: auto;
+            width: 100%;
+          }
+          &.is-active {
+            color: $nav-hover;
+          }
+          &:hover {
+            text-decoration: none;
+            color: $nav-hover;
+          }          
+        }
+        ul {
+          padding-left: 10px;
+          display: none;
+          @media (min-width: $screen-md-min) {
+            position: absolute;
+            top: 54px;
+            background-color: $nav-bg;            
+            width: 200px;
+            padding-left: 0;
+          }
+          li {
+            width: 100%;
+            padding: 0;
+            border: none;
+            position: relative;
+            a {
+              font-size: 12px;
+              line-height: 13px;              
+              letter-spacing: 0;
+              font-weight: normal;              
+              margin: 0;
+              padding: 10px;             
+              width: 100%;
+              font-weight: bold;
+              @media (min-width: $screen-md-min) {
+                color: #ccc;
+                border-bottom: 1px solid $black;
+                padding: 12px;
+                font-weight: normal;
+              }        
+              &:hover {                
+                @media (min-width: $screen-md-min) {
+                  background-color: $nav-bg-hover;                 
+                }
+              }              
+            }
+            ul {
+              display: none;
+              @media (min-width: $screen-md-min) {
+                position: absolute;
+                top:0;
+                left:200px;                
+              }              
+            }
+          }
+          .dropdown-indicator {
+            @media (min-width: $screen-md-min) {
+              transform: rotate(270deg);
+              top: 13px;
+            }
+          }          
+        }        
+        .dropdown-indicator {
+          padding-left: 5px;
+          float: right;
+          transform: rotate(270deg);
+          position: absolute;
+          right: 10px;
+          top: 15px;
+          cursor: pointer;
+          @media (min-width: $screen-md-min) {
+            transform: none;
+            right: 5px;
+            top: 5px;
+          }
+          &.open {
+            transform: none;
+          }
+        }
+      }
+    }
+  }  
+}
