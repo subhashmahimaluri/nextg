@@ -1,0 +1,15 @@
+
+de_modules
+npm-debug.log
+.idea
+._.DS*
+.DS_*
+._*
+*sass-cache*
+tags
+# Vim files
+*.sw*
+/vendor
+/bin
+*.phar
+.sass-cache

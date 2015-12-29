@@ -14,6 +14,13 @@ $bootstrap-sass-asset-helper: false !default;
     font-weight: normal;
     font-style: normal; 
 }
+@font-face {
+    font-family: "OpenSansBold";
+    src: url("../fonts/OpenSans-Bold.eot");
+    src: url("../fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/OpenSans-Bold.ttf") format("truetype"), url("../fonts/OpenSans-Bold.woff") format("woff"), url("../fonts/OpenSans-Bold.svg#responsivenav") format("svg");
+    font-weight: normal;
+    font-style: normal; 
+}
 
 //== Colors
 //
@@ -46,7 +53,10 @@ $dark-cyan:             #158e99;
 
 $gray-line:            #cccccc !default;
 
-$nav-hover:            #e61557 !default;
+$nav-hover:            #317F53 !default;
+$nav-default:          #58625F !default;
+$nav-bg:               #1C1C1C !default;
+$nav-bg-hover:               #272727 !default;
 
 $facebook_color:       #45619D !default;
 $twitter_color:        #55ACEE !default;
@@ -57,9 +67,9 @@ $pinterest_color:      #C9222A !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               #ffffff !default;
+$body-bg:               #FdFdFd !default;
 //** Global text color on `<body>`.
-$text-color:            #000000 !default;
+$text-color:            #676767 !default;
 
 //** Global textual link color.
 $link-color:            $brand-primary !default;
@@ -74,9 +84,9 @@ $link-hover-decoration: underline !default;
 //## Font, line-height, and color for body text, headings, and more.
 
 $font-family-opensans:  "OpenSans", Helvetica, Arial, sans-serif !default;
-//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-opensans !default;
+$font-family-opensans-bold:  "OpenSansBold", Helvetica, Arial, sans-serif !default;
+$font-opensans-bold:        $font-family-opensans-bold !default;
 
 $font-size-base:          14px !default;
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; // ~18px
@@ -350,6 +360,8 @@ $screen-md-max:              ($screen-lg-min - 1) !default;
 //== Grid system
 //
 //## Define your custom responsive grid.
+
+$screen-admin-menu: 575px;
 
 //** Number of columns in the grid.
 $grid-columns:              12 !default;
@@ -899,7 +911,6 @@ $hr-border:                   $gray-lighter !default;
 //
 //##
 $img-base-path: '../images';
-$font-absolute-base-path: '/sites/all/themes/custom/allyou_bootstrap/fonts';
 $font-base-path: '../fonts';
 
 //== Bagrounds Opacity 

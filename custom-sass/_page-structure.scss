@@ -7,13 +7,14 @@
  *--------------------------------------------------------------------------- */
 body {
   max-width: 100%;
-  background-color: #FdFdFd;
-  font-family: 'Open Sans', sans-serif;
-  color: #676767;
+  background-color: $body-bg;
+  font-family: $font-family-base;
+  color: $text-color;
   position: relative;
 }
-.toolbar-fixed {
-  padding-top: 39px !important;
+img {
+    max-width: 100%;
+    height: auto;
 }
 h1 {
   margin: 10px 0;
@@ -45,9 +46,6 @@ h1 {
   border-radius: 0;
   border: 0;
   width: 100%;
-  top: 0;
-  left: 0px;
-  position: fixed;
   overflow: visible!important;
   padding: 10px 0px 0px 0px;
   background-color: $white;
@@ -56,6 +54,8 @@ h1 {
   height: 60px;
   margin-bottom: 0;
   z-index: 500;
+  top:0;
+  font-family: $font-opensans-bold;
   @media (min-width: $screen-md-min) {
     top: 0;
     padding: 20px 0px 0px 0px;
@@ -100,9 +100,28 @@ h1 {
       font-size: 26px;
     }
   }
-}
-.toolbar-fixed #navbar, .toolbar-vertical #navbar {
-  top: 39px;
+  &.shrink {
+    position: fixed;
+    @media (min-width: $screen-md-min) {
+      height: 70px;
+      padding: 7px 0 0;
+      #search-wrapper{
+        height: 60px;
+      }
+      #search-wrapper #search-box .form-search{
+        margin-top:8px;
+        height: 50px;
+        font-size: 40px;
+        line-height: 50px;
+      }
+      #search-wrapper #close {
+        margin-top: 25px;
+      }
+      .navbar-collapse nav ul li ul{
+        top:46px;
+      }  
+    }    
+  }
 }
 .search-icon {
   right: 0;
@@ -133,128 +152,6 @@ h1 {
       color: #317F53;
     }
   }
-}
-.navbar-collapse {
-  float: left;
-  padding-right: 0;
-  padding-left: 0;
-  border: 2px solid #eee;
-  position: absolute;
-  width: 300px;
-  z-index: 1;
-  top: 60px;
-  display: none;
-  background: #fff;
-  @media (min-width: $screen-md-min) {
-    float: right;
-    position: relative;
-    border: 0;
-    top: 0;
-    width: auto;
-    margin-top: 18px;
-    display: block;
-    background: none;
-  }   
-  nav {
-  float: left;
-  @media (min-width: $screen-md-min) {
-    margin-right: 10px;
-  }
-    ul {
-      margin-bottom: 0;
-      padding-left: 0;
-      li {
-        float: left;
-        line-height: 14px;
-        font-size: 16px;
-        position: relative;
-        list-style: none;
-        padding: 5px 14px;          
-        width: 100%;
-        border-bottom: 1px solid #eee;
-        @media (min-width: $screen-md-min) {
-          width: auto;
-          border-bottom: 0;
-          font-size: 14px;
-        }
-        ul {
-          padding-left: 20px;
-          display: none;
-          @media (min-width: $screen-md-min) {
-            position: absolute;
-            top: 54px;
-            background-color: #1C1C1C;            
-            width: 200px;
-            padding-left: 0;
-          }
-          li {
-            width: 100%;
-            padding: 0;
-            border: none;
-            a {
-              font-size: 12px;
-              line-height: 13px;              
-              letter-spacing: 0;
-              font-weight: normal;              
-              margin: 0;
-              padding: 10px;             
-              width: 100%;
-              font-weight: bold;
-              @media (min-width: $screen-md-min) {
-                color: #ccc;
-                border-bottom: 1px solid #000;
-                padding: 12px;
-                font-weight: normal;
-              }        
-              &:hover {                
-                @media (min-width: $screen-md-min) {
-                  background-color: #272727;
-                }
-              }              
-            }
-          }
-        }
-        &:hover {
-          ul {            
-            @media (min-width: $screen-md-min) {
-              display: block;
-            }
-          }
-        }
-        a {
-          color: #58625F;
-          float: left;
-          font-weight: 600;
-          padding: 10px 0;
-          width: 90%;
-          @media (min-width: $screen-md-min) {
-            padding: 0 0 30px;
-            width: auto;
-            width: 100%;
-          }
-          &.is-active {
-            color: #317F53;
-          }
-          &:hover {
-            text-decoration: none;
-            color: #317F53;
-          }
-          .dropdown-indicator {
-            padding-left: 5px;
-            float: right;
-            transform: rotate(270deg);
-            position: absolute;
-            right: 10px;
-            @media (min-width: $screen-md-min) {
-              transform: none;
-              position: relative;
-              right: 0;
-            }
-          }
-        }
-      }
-    }
-  }  
 }
 .menu-toggle {
   display: none;
@@ -345,11 +242,11 @@ h1 {
 }
 // this surrounds the content and right rail, so set overall width, margin and padding here
 .main-container {
-  margin-top: 60px;
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 100px;
+  padding-bottom: 20px;
+  margin-top:20px;
   .row {
     margin-left: 0;
     margin-right: 0;
@@ -362,8 +259,6 @@ h1 {
     padding-right: 20px;
   }
   @media (min-width: $screen-sm-min) {
-    // tablet has a larger ad on top
-    padding-top: 100px;
     width: $screen-sm-min;
     .row {
       margin-left: 0;
@@ -371,8 +266,6 @@ h1 {
     }
   }
   @media (min-width: $screen-md-min) {
-    // desktop should not have a locked header, so no need to compensate for it
-    margin-top: 90px;
     width: $screen-md-min;
   }
   @media (min-width: $screen-lg-min) {
@@ -380,25 +273,54 @@ h1 {
   }
   .col-sm-9 {
     width: 100%;
+    padding: 0;
+    @media (min-width: $screen-md-min) {
+      width: 72.5%;
+    }
+  }
+  .col-sm-6 {
+    width: 100%;
     padding: 0;    
     @media (min-width: $screen-md-min) {
-      width: 644px;
-      margin: 0;
-      padding: 0;
+      width: 50%;
+      padding: 0 15px;
     }
-    @media (min-width: $screen-lg-min) {
-      width: 72.5%;
+  }
+  .col-sm-3 {
+    width: 100%;
+    padding: 0;    
+    @media (min-width: $screen-md-min) {
+      width: 25%;
     }
   }
   .main-content {
     padding: 10px 0px 30px;
   }
 }
+.layout-sidebar-first {
+  .main-container {
+    .col-sm-9 {
+      @media (min-width: $screen-md-min) {
+        padding-left: 20px;
+      }
+    }    
+  }
+}
+.layout-sidebar-second {
+  .main-container {
+    .col-sm-9 {
+      @media (min-width: $screen-md-min) {
+        padding-right: 20px;
+      }
+    }    
+  }
+}
 //Footer
 .footer-top {
   background-color: #252525;
   color: #777;
-  padding: 20px 0px;
+  padding: 30px 0px;
+  min-height: 250px;
   a {
     color: #ccc;
     &:hover {
@@ -407,7 +329,7 @@ h1 {
   }
 }
 .footer-bottom {
-  padding: 20px 0px;
+  padding: 15px 0px;
   font-size: 12px;
   background-color: #1c1c1c;
   color: #777;
@@ -417,4 +339,184 @@ h1 {
       color: #317F53;
     }
   }
+}
+
+//Social Share
+.social-share{
+  float: right;
+  ul{
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    li{
+      display: inline-block;
+      margin-left: 14px;
+      font-size: 16px;
+      a {
+        border: 1px solid #fff;
+        border-radius: 50%;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        width: 40px;
+        color: #fff;
+        text-align: center;
+        transition: all 0.3s ease;
+        .fa {
+          display: inline-block;
+          font: normal normal normal 14px/1 FontAwesome;
+          font-size: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          transform: translate(0, 0);
+        }
+        &:hover{
+          
+        }
+      }
+      &:hover{
+        a {
+          background: #000;
+          color: #317F53;
+          border: 1px solid #fff;          
+          transform: rotateY(360deg);
+          
+        }
+      }
+    }
+  }
+}
+.hero-image{
+  width: 100%;
+  height: auto;
+  background:#ccc;
+}
+.carousel-control {
+  height: 60px;
+  margin-top: 0;
+  font-size: 80px;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+  background-color: transparent;
+  border: 0;
+  z-index: 10;
+  position: absolute;
+  top: 40%;
+  opacity: 0.5;
+  line-height: 45px;
+   @media (min-width: $screen-md-min) {
+    font-size: 120px;
+    height: 80px;
+    line-height: 60px;
+   }
+}
+.carousel-caption{
+  top: 50%;
+  padding-top: -55%;
+  transform: translateY(-50%);
+  min-height: 165px;
+  h1 {
+    font-size: 18px;
+    @media (min-width: $screen-md-min) {
+      font-size: 36px;
+    }
+  }
+  p {
+    font-size: 12px;
+    @media (min-width: $screen-md-min) {
+      font-size: 16px;
+    }
+  }
+  .btn {
+    padding: 0 28px;
+    height: 25px;
+    line-height: 23px;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: all .3s ease;
+    font-weight: 400;
+    @media (min-width: $screen-md-min) {
+      height: 55px;
+      line-height: 53px;
+    } 
+  }
+  .btn-light-out {
+    color: #fff;
+    background-color: #317F53;
+    border-radius: 50px;
+    &:hover, &:active, &:focus {
+      background-color: #fff;
+      border-color: #fff;
+      color: #191b1d;
+    }
+  }
+}
+.region-footer-bottom{
+  float:left;
+  span {
+    padding: 15px 0;
+    display: block;
+  }
+}
+.go-top {
+  display: block;
+  position: fixed;
+  text-align: center;
+  line-height: 12px!important;
+  right: 17px;
+  bottom: 25px;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.87);
+  border-radius: 2px;
+  z-index: 10000;
+  height: 29px;
+  width: 29px;
+  font-size: 26px;
+  a {
+    color: #fff;
+    display: block;
+    &:hover {
+      color: #317F53;
+    }
+  }
+}
+.footer-top {
+  .region {
+    padding-bottom: 10px;
+    p {
+      margin: 0 0 20px 0;
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: #d8dade;
+      letter-spacing: 1px;
+      padding: 0 0 0 15px;
+      border-left: 2px solid #317F53;
+    }
+    ul {
+      padding: 0;
+      li {
+        list-style: none;
+        padding: 8px 4px;
+        a {
+          transition: padding .15s ease-in-out,background-position .15s ease-in-out,color .15s ease-in-out;
+          margin: 0;        
+          display: inline-block;
+          &:hover {
+            background-image: url(../images/hover-right.svg);
+            background-size: 4px 8px;
+            background-position: 2px center;
+            padding-left: 12px;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+  }  
 }
